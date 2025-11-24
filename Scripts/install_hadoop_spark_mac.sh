@@ -157,7 +157,7 @@ if [ -f "$HADOOP_HOME/etc/hadoop/hadoop-env.sh" ]; then
     # Remove any existing JAVA_HOME lines
     sed -i.bak '/^export JAVA_HOME=/d' $HADOOP_HOME/etc/hadoop/hadoop-env.sh
     # Add JAVA_HOME to hadoop-env.sh
-    echo "export JAVA_HOME=\"\$(brew --prefix openjdk@21)\"" >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+    echo "export JAVA_HOME=/opt/homebrew/opt/openjdk@21" >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
     echo "JAVA_HOME set in hadoop-env.sh: $(brew --prefix openjdk@21)"
 else
     echo "Warning: hadoop-env.sh not found at $HADOOP_HOME/etc/hadoop/hadoop-env.sh"
@@ -190,6 +190,13 @@ echo "Run next time:"
 echo "   start-dfs.sh"
 echo "   start-yarn.sh"
 echo "---------------------------------------------"
-echo " if it doesn't run or display errors check the java version, reinstall it, add it to path:"
-echo " export JAVA_HOME=\"\$(brew --prefix openjdk@21)\""
+echo " if it doesn't run or display errors, then try:"
+echo " Setting > General > Sharing > Remote Login > Allow full disk access to terminal and restart the terminal"
+echo " Once Done , run the following commands:"
+echo "   ssh localhost"
+echo " type yes and hit enter"
+echo "Then again run:"
+echo "   start-dfs.sh"
+echo "   start-yarn.sh"
+echo " It'll work fine now."
 echo "---------------------------------------------"
