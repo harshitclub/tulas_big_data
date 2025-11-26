@@ -169,3 +169,18 @@ println(s"WROTE results to folder (check locally): ${outDir}")
 ```
 
 [https://grafana-assets-bucket.s3.ap-south-1.amazonaws.com/product_result.csv](https://grafana-assets-bucket.s3.ap-south-1.amazonaws.com/product_result.csv)
+
+[https://grafana-assets-bucket.s3.ap-south-1.amazonaws.com/products-2000000.csv](https://grafana-assets-bucket.s3.ap-south-1.amazonaws.com/products-2000000.csv)
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::grafana-assets-bucket/*"
+        }
+    ]
+}
